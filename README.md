@@ -1,5 +1,7 @@
 # "Under Construction" Udemy Course by AR Shankar | Valaxy Technologies
 
+# CURRENT WORKING STEP - Initial Terraform Configuration
+
 ## Course Overview:
 
 This course has been designed to provide a hands-on experience in building a CI/CD pipeline. In it I will be utilizing tools such as Terraform, Git, Jenkins, Maven, SonarQube, Artifactory, Ansible, Docker, Kubernetes, Helm, Prometheus, and Grafana.
