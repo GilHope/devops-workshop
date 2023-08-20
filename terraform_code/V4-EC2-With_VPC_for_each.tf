@@ -18,7 +18,7 @@ resource "aws_instance" "demo-server" {
 resource "aws_security_group" "demo-sg" {
   name        = "demo-sg"
   description = "SSH access"
-  vpc_id      = aws_vpc.dpp-vpc
+  vpc_id      = aws_vpc.dpp-vpc.id
 
   ingress {
     description = "SSH access"
