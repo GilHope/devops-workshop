@@ -6,7 +6,8 @@ resource "aws_instance" "demo-server" {
     ami = "ami-08a52ddb321b32a8c"
     instance_type = "t2.micro"
     key_name = "ddp"
-    security_groups = ["demo-sg"]
+    //security_groups = ["demo-sg"]
+    vpc_security_group_ids = [aws_security_group.demo-sg.id]
     subnet_id = aws_subnet.dpp-public-subnet-01.id
 }
 
@@ -43,6 +44,16 @@ resource "aws_vpc" "dpp-vpc" {
     }
 }
 
+resource "aws_subnet" "dpp-public-subnet-01" {
+    vpc_id = aws_vpc.dpp-vpc.id
+    cidr_block = "10.1.1.0/24"
+    map_public_ip_on_launch = "true"
+    availability_zone = "us-east-1a"
+    tags = {
+        Name = "dpp-public-subnet-01"
+    }
+}
+
 resource "aws_subnet" "dpp-public-subnet-02" {
     vpc_id = aws_vpc.dpp-vpc.id
     cidr_block = "10.1.2.0/24"
@@ -69,6 +80,11 @@ resource "aws_route_table" "dpp-public-rt" {
 }
 
 resource "aws_route_table_association" "dpp-rta-public-subnet-01" {
+    subnet_id = aws_subnet.dpp-public-subnet-01.id
+    route_table_id = aws_route_table.dpp-public-rt.id
+}
+
+resource "aws_route_table_association" "dpp-rta-public-subnet-02" {
     subnet_id = aws_subnet.dpp-public-subnet-02.id
     route_table_id = aws_route_table.dpp-public-rt.id
 }
