@@ -1,6 +1,6 @@
-# "Under Construction" Udemy Course by AR Shankar | Valaxy Technologies
+# Udemy Course by AR Shankar | Valaxy Technologies - _UNDER CONSTRUCTION_
 
-# CURRENT WORKING STEP - Initial Terraform Configuration
+# CURRENT WORKING STEP - Ansible Setup
 
 ## Course Overview:
 
